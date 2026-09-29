@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /gifts/{giftId} {
+      function isKnownGift() {
+        return giftId in [
+          'activity-booklet',
+          'sound-puzzle-green',
+          'activity-booklet-pink-fairy-garden',
+          'activity-booklet-beige-newborn-naturals',
+          'wooden-guitar-green-safari-friends',
+          'music-set-green-safari-friends',
+          'wooden-activity-cube-blue-forest-friends',
+          '4-in-1-tricycle-green',
+          'B0DQQ2DYNN',
+          'B0D62VMQBH',
+          'B08XXBC81T',
+          'B09BJGTN39'
+        ];
+      }
+
+      function hasValidFields() {
+        return request.resource.data.keys().hasOnly(['status', 'reservedBy', 'updatedAt'])
+          && request.resource.data.keys().hasAll(['status', 'reservedBy', 'updatedAt'])
+          && request.resource.data.updatedAt == request.time;
+      }
+
+      allow read: if isKnownGift();
+      allow create: if isKnownGift()
+        && request.auth != null
+        && hasValidFields()
+        && request.resource.data.status == 'reserved'
+        && request.resource.data.reservedBy == request.auth.uid;
+      allow update: if isKnownGift()
+        && request.auth != null
+        && hasValidFields()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'reservedBy', 'updatedAt'])
+        && (
+          (resource.data.status == 'available'
+            && request.resource.data.status == 'reserved'
+            && request.resource.data.reservedBy == request.auth.uid)
+          || (resource.data.status == 'reserved'
+            && resource.data.reservedBy == request.auth.uid
+            && ((request.resource.data.status == 'purchased'
+                && request.resource.data.reservedBy == request.auth.uid)
+              || (request.resource.data.status == 'available'
+                && request.resource.data.reservedBy == null)))
+        );
+      allow delete: if false;
+    }
+  }
+}

@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="description" content="Una pequeña lista de ideas para celebrar la llegada de Ylenia Navas Sica.">
+  <title>Para Ylenia, con cariño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f1e8;
+      --white: #fffdf8;
+      --ink: #213c32;
+      --muted: #68766d;
+      --green: #315a46;
+      --green-dark: #234334;
+      --coral: #d97860;
+      --yellow: #e6bd56;
+      --line: #dedfd3;
+      --serif: "DM Serif Display", Georgia, serif;
+      --sans: "DM Sans", "Avenir Next", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 5;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      background: var(--white);
+      color: var(--ink);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      min-height: 76px;
+      margin: 0 auto;
+      padding: 0 44px;
+    }
+    .wordmark {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .languages {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+    }
+    .language-button {
+      min-width: 42px;
+      min-height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .language-button[aria-pressed="true"] {
+      background: var(--green);
+      color: white;
+    }
+    :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr);
+      align-items: center;
+      gap: 42px;
+      max-width: 1280px;
+      min-height: 530px;
+      margin: 0 auto;
+      padding: 52px 74px 68px;
+      overflow: hidden;
+      background: #e8eddf;
+    }
+    .hero-copy { position: relative; z-index: 1; max-width: 630px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      width: 24px;
+      height: 2px;
+      background: var(--coral);
+      content: "";
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 660px;
+      margin-bottom: 20px;
+      font-family: var(--serif);
+      font-size: clamp(56px, 7vw, 92px);
+      font-weight: 400;
+      line-height: .98;
+    }
+    h1 span { color: var(--coral); }
+    .hero-intro {
+      max-width: 480px;
+      margin-bottom: 26px;
+      color: #475c50;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 3px;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .hero-link:hover { transform: translateY(-2px); background: var(--green-dark); }
+    .hero-link span { font-size: 18px; line-height: 1; }
+    .hero-art {
+      position: relative;
+      min-height: 385px;
+    }
+    .hero-image {
+      position: absolute;
+      display: block;
+      width: 70%;
+      height: 80%;
+      right: 7%;
+      top: 4%;
+      border-radius: 47% 47% 6px 6px;
+      background: #f1dba6;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 22px 46px #29463320;
+      transform: rotate(3deg);
+    }
+    .hero-sticker {
+      position: absolute;
+      z-index: 1;
+      left: 1%;
+      bottom: 5%;
+      display: grid;
+      width: 126px;
+      aspect-ratio: 1;
+      place-content: center;
+      border-radius: 50%;
+      background: var(--coral);
+      color: white;
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.1;
+      text-align: center;
+      transform: rotate(-9deg);
+    }
+    .hero-sticker small {
+      display: block;
+      margin-bottom: 5px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .hero-spark {
+      position: absolute;
+      top: 0;
+      left: 13%;
+      color: var(--yellow);
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    .note-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 20px 24px;
+      background: var(--green);
+      color: #fffdf8;
+      text-align: center;
+    }
+    .note-strip p { max-width: 850px; margin: 0; font-size: 13px; line-height: 1.65; }
+    .note-mark { color: var(--yellow); font-size: 20px; }
+    main { max-width: 1280px; margin: 0 auto; }
+    .contribution {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 54px 74px;
+      background: var(--green-dark);
+      color: var(--white);
+    }
+    .contribution .eyebrow { color: #f1d47e; }
+    .contribution h2 { max-width: 530px; }
+    .contribution-copy { max-width: 490px; }
+    .contribution-copy p { margin: 0 0 12px; color: #e1e9df; font-size: 14px; line-height: 1.75; }
+    .contribution-copy p:last-child { margin-bottom: 0; color: #f1d47e; font-size: 12px; }
+    .bank-details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 9px 16px;
+      margin: 20px 0 0;
+      padding: 16px 18px;
+      border: 1px solid #ffffff35;
+      background: #ffffff0b;
+      font-size: 12px;
+    }
+    .bank-details dt { color: #d5e0d5; }
+    .bank-details dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+    .sync-status { min-height: 20px; margin: 16px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .gifts { padding: 78px 74px 88px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 26px;
+      margin-bottom: 30px;
+    }
+    .section-heading .eyebrow { margin-bottom: 13px; }
+    h2 {
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+    .section-aside {
+      max-width: 255px;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 34px 20px;
+    }
+    .gift-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid #e9e5db;
+      border-radius: 5px;
+      overflow: hidden;
+      animation: appear .55s both;
+    }
+    .gift-card:nth-child(3n + 2) { animation-delay: .08s; }
+    .gift-card:nth-child(3n + 3) { animation-delay: .16s; }
+    .product-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.28;
+      background: #e9eadf;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .gift-card:hover .product-photo { transform: scale(1.025); }
+    .photo-wrap { overflow: hidden; background: #e9eadf; }
+    .card-content { display: flex; flex: 1; flex-direction: column; padding: 20px 20px 18px; }
+    .category {
+      margin-bottom: 8px;
+      color: var(--coral);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    h3 {
+      margin-bottom: 9px;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    .description {
+      flex: 1;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .card-bottom {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .price-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .price { font-size: 15px; font-weight: 700; white-space: nowrap; }
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s ease, color .2s ease;
+    }
+    .product-link:hover { background: var(--green); color: white; }
+    .product-link span { font-size: 14px; }
+    .reservation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 42px;
+      padding-top: 12px;
+    }
+    .gift-status { color: var(--muted); font-size: 10px; line-height: 1.4; }
+    .reservation-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 6px; }
+    .reserve-button {
+      min-height: 34px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 3px;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .reserve-button.secondary { border: 1px solid var(--line); background: transparent; color: var(--green); }
+    .reserve-button:disabled { cursor: wait; opacity: .6; }
+    .diaper-note {
+      margin-top: 12px;
+      padding: 10px 11px;
+      border-left: 2px solid var(--yellow);
+      background: #f5f1e8;
+      color: #53665a;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .closing {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 42px 74px;
+      background: #edd8c7;
+    }
+    .closing h2 { max-width: 600px; font-size: 36px; }
+    .closing p { max-width: 580px; margin: 10px 0 0; color: #62554a; font-size: 13px; line-height: 1.65; }
+    .closing-flower { color: var(--coral); font-size: 58px; line-height: 1; }
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1280px;
+      min-height: 76px;
+      margin: 0 auto;
+      padding: 18px 44px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .footer-name { color: var(--ink); font-weight: 700; }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media (max-width: 850px) {
+      .topbar { padding: 0 24px; }
+      .hero { grid-template-columns: 1fr .8fr; gap: 12px; min-height: 480px; padding: 44px 34px 54px; }
+      .hero-art { min-height: 320px; }
+      .hero-sticker { width: 100px; font-size: 16px; }
+      .gifts { padding: 64px 30px 70px; }
+      .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contribution { gap: 24px; padding: 44px 30px; }
+      .closing { padding: 36px 30px; }
+      footer { padding: 18px 24px; }
+    }
+    @media (max-width: 600px) {
+      .topbar { min-height: 66px; padding: 0 18px; }
+      .wordmark { max-width: 130px; font-size: 10px; line-height: 1.5; }
+      .hero { display: flex; min-height: 0; flex-direction: column; align-items: stretch; gap: 14px; padding: 42px 24px 26px; }
+      .hero-copy { max-width: none; }
+      .eyebrow { margin-bottom: 18px; font-size: 10px; }
+      h1 { max-width: 420px; margin-bottom: 14px; font-size: 62px; }
+      .hero-intro { margin-bottom: 18px; font-size: 15px; }
+      .hero-art { min-height: 245px; margin: 0 8px; }
+      .hero-image { width: 62%; height: 94%; right: 16%; top: 0; }
+      .hero-sticker { left: 4%; bottom: 2%; width: 88px; font-size: 14px; }
+      .hero-sticker small { font-size: 8px; }
+      .hero-spark { left: 20%; font-size: 38px; }
+      .note-strip { gap: 8px; padding: 15px 18px; }
+      .note-strip p { font-size: 11px; }
+      .contribution { grid-template-columns: 1fr; gap: 18px; padding: 38px 22px; }
+      .contribution h2 { font-size: 38px; }
+      .contribution-copy p { font-size: 12px; }
+      .bank-details { gap: 8px 12px; padding: 14px; font-size: 11px; }
+      .gifts { padding: 54px 18px 60px; }
+      .section-heading { display: block; margin-bottom: 24px; }
+      .section-heading .eyebrow { margin-bottom: 12px; }
+      h2 { font-size: 43px; }
+      .section-aside { max-width: 360px; margin: 12px 0 0; font-size: 12px; }
+      .gift-grid { grid-template-columns: 1fr; gap: 18px; }
+      .gift-card { display: grid; grid-template-columns: 40% 1fr; min-height: 0; }
+      .photo-wrap { min-height: 100%; }
+      .product-photo { height: 100%; min-height: 190px; aspect-ratio: auto; }
+      .card-content { padding: 14px 13px 13px; }
+      .category { margin-bottom: 5px; font-size: 9px; }
+      h3 { margin-bottom: 6px; font-size: 20px; }
+      .description { margin-bottom: 12px; font-size: 11px; line-height: 1.5; }
+      .card-bottom { align-items: start; flex-direction: column; gap: 9px; padding-top: 10px; }
+      .reservation { align-items: start; flex-direction: column; gap: 8px; }
+      .reservation-actions { justify-content: start; }
+      .price-label { font-size: 9px; }
+      .price { font-size: 13px; }
+      .product-link { min-height: 34px; padding: 0 10px; font-size: 10px; }
+      .diaper-note { grid-column: 1 / -1; margin-top: 10px; font-size: 10px; }
+      .closing { grid-template-columns: 1fr auto; gap: 12px; padding: 32px 22px; }
+      .closing h2 { font-size: 30px; }
+      .closing p { font-size: 11px; }
+      .closing-flower { font-size: 42px; }
+      footer { align-items: start; flex-direction: column; gap: 5px; padding: 18px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-copy="skip">Saltar al contenido</a>
+  <header class="topbar">
+    <div class="wordmark" data-copy="wordmark">Una lista hecha con cariño</div>
+    <nav class="languages" aria-label="Choose language / Elige idioma / Scegli la lingua">
+      <button class="language-button" type="button" data-language="es" aria-pressed="true" aria-label="Español">ES</button>
+      <button class="language-button" type="button" data-language="it" aria-pressed="false" aria-label="Italiano">IT</button>
+      <button class="language-button" type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow" data-copy="welcome">Bienvenida, pequeña</p>
+      <h1 id="hero-title">Ylenia<br><span>Navas Sica</span></h1>
+      <p class="hero-intro" data-copy="intro">Ya tenemos todo lo esencial para recibirla. Pero, como algunos nos habéis preguntado qué podéis regalarle, hemos reunido unas cuantas ideas con mucho cariño.</p>
+      <a class="hero-link" href="#aportacion"><span data-copy="cta">Nuestra opción preferida</span><span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <span class="hero-spark">✳</span>
+      <img class="hero-image" src="https://little-dutch.com/cdn/shop/files/0021328.jpg?v=1775165767&width=900" alt="" fetchpriority="high">
+      <div class="hero-sticker"><span><small data-copy="hello">Hola,</small>Ylenia!</span></div>
+    </div>
+  </section>
+
+  <aside class="note-strip">
+    <span class="note-mark" aria-hidden="true">✳</span>
+    <p data-copy="note">Lo más importante es compartir este momento con vosotros. Estos regalos son solo ideas, nunca un compromiso.</p>
+    <span class="note-mark" aria-hidden="true">✳</span>
+  </aside>
+
+  <main id="main">
+    <section class="contribution" id="aportacion" aria-labelledby="contribution-title">
+      <div>
+        <p class="eyebrow" data-copy="transferKicker">Nuestra opción preferida</p>
+        <h2 id="contribution-title" data-copy="transferTitle">Una aportación a la cuenta de Ylenia</h2>
+      </div>
+      <div class="contribution-copy">
+        <p data-copy="transferText">Lo que más nos ayudaría sería una transferencia a la cuenta de Ylenia. Así podremos comprar lo que vaya necesitando, cuando realmente lo necesite.</p>
+        <p data-copy="transferUpdate">Os iremos contando qué hemos comprado con vuestra aportación y qué cantidad queda todavía por utilizar.</p>
+        <p data-copy="transferDetails">Para los datos de la cuenta, podéis escribirnos por el mismo medio por el que os hemos enviado esta página.</p>
+        <dl class="bank-details" aria-label="Datos bancarios">
+          <dt data-copy="beneficiaryLabel">Beneficiarios</dt><dd>Victor Navas &amp; Maria Francesca Sica</dd>
+          <dt>IBAN</dt><dd>IE78 REVO 9903 6085 8953 54</dd>
+          <dt>BIC / SWIFT</dt><dd>REVOIE23</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="gifts" id="regalos" aria-labelledby="gifts-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-copy="collection">Una pequeña selección</p>
+          <h2 id="gifts-title" data-copy="giftsTitle">Ideas para Ylenia</h2>
+        </div>
+        <p class="section-aside" data-copy="priceNote">Precios aproximados en euros; pueden cambiar según la tienda, el envío o la disponibilidad.</p>
+      </div>
+      <p class="sync-status" id="sync-status" role="status">Conectando con la lista de regalos...</p>
+      <div class="gift-grid" id="gift-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title" data-copy="closingTitle">Vuestra compañía ya es un regalo.</h2>
+        <p data-copy="closingText">Gracias por acompañarnos y por tanto cariño. Estamos deseando que conozcáis a Ylenia.</p>
+      </div>
+      <span class="closing-flower" aria-hidden="true">✿</span>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-name" data-copy="footerName">Con cariño, la familia Navas Sica</span>
+    <span data-copy="footerPrices">Precios orientativos · Enlaces a tiendas externas</span>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getFirestore, collection, doc, documentId, onSnapshot, query, runTransaction, serverTimestamp, where } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC8PKR2Sj14pZva9m28i8n9UXclxd253oU",
+      authDomain: "ylenia-presents-2026.firebaseapp.com",
+      projectId: "ylenia-presents-2026",
+      storageBucket: "ylenia-presents-2026.firebasestorage.app",
+      messagingSenderId: "500699460336",
+      appId: "1:500699460336:web:149678ac003344083b0835"
+    };
+
+    const firebaseApp = initializeApp(firebaseConfig);
+    const auth = getAuth(firebaseApp);
+    const db = getFirestore(firebaseApp);
+    const translations = {
+      es: {
+        skip: "Saltar al contenido",
+        wordmark: "Una lista hecha con cariño",
+        welcome: "Bienvenida, pequeña",
+        hello: "Hola,",
+        intro: "Ya tenemos todo lo esencial para recibirla. Pero, como algunos nos habéis preguntado qué podéis regalarle, hemos reunido unas cuantas ideas con mucho cariño.",
+        cta: "Nuestra opción preferida",
+        note: "Lo más importante es compartir este momento con vosotros. Estos regalos son solo ideas, nunca un compromiso.",
+        transferKicker: "Nuestra opción preferida",
+        transferTitle: "Una aportación a la cuenta de Ylenia",
+        transferText: "Lo que más nos ayudaría sería una transferencia a la cuenta de Ylenia. Así podremos comprar lo que vaya necesitando, cuando realmente lo necesite.",
+        transferUpdate: "Os iremos contando qué hemos comprado con vuestra aportación y qué cantidad queda todavía por utilizar.",
+        transferDetails: "Hemos dejado aquí los datos de la cuenta por si preferís hacer una transferencia.",
+        beneficiaryLabel: "Beneficiarios",
+        syncLoading: "Conectando con la lista de regalos...",
+        syncReady: "La lista de regalos está actualizada en tiempo real. Reservad un regalo antes de comprarlo.",
+        syncUnavailable: "Las reservas aún no están activadas. Podéis escribirnos para confirmar un regalo.",
+        syncError: "No se ha podido actualizar la reserva. Probad otra vez dentro de un momento.",
+        statusAvailable: "Disponible",
+        statusUnavailable: "Reservas no activas",
+        statusReserved: "Reservado por otra persona",
+        statusReservedByYou: "Reservado por ti",
+        statusPurchased: "Ya está comprado",
+        actionReserve: "Lo voy a comprar",
+        actionPurchase: "Marcar comprado",
+        actionCancel: "Liberar",
+        collection: "Una pequeña selección",
+        giftsTitle: "Ideas para Ylenia",
+        priceNote: "Precios aproximados en euros; pueden cambiar según la tienda, el envío o la disponibilidad.",
+        priceLabel: "Precio orientativo",
+        link: "Ver producto",
+        closingTitle: "Vuestra compañía ya es un regalo.",
+        closingText: "Gracias por acompañarnos y por tanto cariño. Estamos deseando que conozcáis a Ylenia.",
+        footerName: "Con cariño, la familia Navas Sica",
+        footerPrices: "Precios orientativos · Enlaces a tiendas externas",
+        diaperNote: "Para los pañales, mejor un vale: la talla y el ajuste dependen de cada bebé, y algunas marcas permiten probarlos y devolverlos.",
+        items: [
+          { category: "Jugar y descubrir", title: "Librito de actividades", description: "Un libro blandito lleno de texturas, etiquetas y pequeños descubrimientos para sus primeros meses.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Librito de actividades Little Dutch" },
+          { category: "Jugar y descubrir", title: "Puzzle sonoro Safari", description: "Un puzzle de madera que acompaña cada pieza con el sonido de un animal.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Puzzle sonoro verde de Little Dutch" },
+          { category: "Jugar y descubrir", title: "Librito Fairy Garden", description: "Un suave libro de actividades con espejo, sonajero y sorpresas para tocar.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-pink-fairy-garden?_pos=10&_psq=fairy+gar&_psid=b5b8bd663&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028023_activiteitenboekje-roze-fairy-garden.jpg?v=1776283993&width=700", alt: "Librito de actividades rosa Fairy Garden" },
+          { category: "Jugar y descubrir", title: "Librito Newborn Naturals", description: "Un libro sensorial en tonos suaves, con espejo, sonajero y distintas texturas.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-beige-newborn-naturals?_pos=5&_psq=newborn+naturals&_psid=03c04854d&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0029738_activiteitenboekje-newborn-naturals.jpg?v=1774883732&width=700", alt: "Librito de actividades beige Newborn Naturals" },
+          { category: "Música", title: "Guitarra de madera", description: "Una primera guitarra verde de Safari Friends para descubrir ritmos y sonidos.", price: 24.95, url: "https://little-dutch.com/en-eu/products/wooden-guitar-green-safari-friends?_pos=1&_psq=guita&_psid=c5c80bd21&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034647_wooden-guitar-green-safari-friends-ld7470-product-1-shopify-square.jpg?v=1778230516&width=700", alt: "Guitarra de madera verde Safari Friends" },
+          { category: "Música", title: "Set musical Safari Friends", description: "Cinco instrumentos y una bolsita para explorar juntos los primeros sonidos.", price: 29.95, url: "https://little-dutch.com/en-eu/products/music-set-green-safari-friends?_pos=1&_psq=music+set&_psid=58442c33f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034402_music-set-green-safari-friends-ld7473-product-2-shopify-square.jpg?v=1778230516&width=700", alt: "Set de instrumentos musicales verde Safari Friends" },
+          { category: "Jugar y descubrir", title: "Cubo de actividades", description: "Un cubo de madera con juegos en cada lado para explorar, encajar y descubrir.", price: 34.95, url: "https://little-dutch.com/en-eu/products/wooden-activity-cube-blue-forest-friends?_pos=5&_psq=cube&_psid=a16c8fef0&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0021328.jpg?v=1775165767&width=700", alt: "Cubo de actividades azul Forest Friends" },
+          { category: "Para crecer", title: "Triciclo evolutivo 4 en 1", description: "Un triciclo que se adapta a distintas etapas, desde los primeros paseos hasta practicar el equilibrio.", price: 109, url: "https://little-dutch.com/en-eu/products/4-in-1-tricycle-green?_pos=1&_psq=tryci&_psid=51028ec3f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028880_4-in-1-driewieler-green.jpg?v=1776369132&width=700", alt: "Triciclo verde evolutivo 4 en 1" },
+          { category: "Para jugar en casa", title: "Alfombra de juegos", description: "Una alfombra amplia, acolchada y plegable para jugar cómodamente en el suelo.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "Alfombra de juegos plegable HuBorns" },
+          { category: "Para crecer", title: "Circuito de escalada Montessori", description: "Un conjunto plegable de triángulo, arco y rampa para explorar el movimiento cuando sea un poco mayor.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Estructura de escalada de madera Montessori" },
+          { category: "Hora de comer", title: "Set de vajilla con succión", description: "Cuenco y plato de bambú con base de succión y cuchara, para empezar a comer con autonomía.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Set verde de cuenco y plato de bambú con cuchara" },
+          { category: "Un vale viene mejor", title: "Pañales reutilizables", description: "Una opción reutilizable que se puede ajustar a medida que crece.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Set de pañales reutilizables Bambino Mio", diaper: true }
+        ]
+      },
+      it: {
+        skip: "Vai al contenuto",
+        wordmark: "Una lista fatta con affetto",
+        welcome: "Benvenuta, piccola",
+        hello: "Ciao,",
+        intro: "Abbiamo già tutto l'essenziale per accoglierla. Ma, visto che alcuni ci hanno chiesto cosa potrebbero regalarle, abbiamo raccolto qualche idea con tanto affetto.",
+        cta: "La nostra scelta preferita",
+        note: "La cosa più importante è condividere questo momento con voi. Questi regali sono solo idee, mai un obbligo.",
+        transferKicker: "La nostra scelta preferita",
+        transferTitle: "Un contributo sul conto di Ylenia",
+        transferText: "Quello che ci aiuterebbe di più sarebbe un bonifico sul conto di Ylenia. Così potremo acquistare ciò di cui avrà bisogno, quando ne avrà davvero bisogno.",
+        transferUpdate: "Vi racconteremo cosa abbiamo acquistato con il vostro contributo e quale importo resta ancora da utilizzare.",
+        transferDetails: "Abbiamo inserito qui i dati del conto, se preferite fare un bonifico.",
+        beneficiaryLabel: "Beneficiari",
+        syncLoading: "Connessione alla lista dei regali...",
+        syncReady: "La lista dei regali è aggiornata in tempo reale. Prenotate un regalo prima di acquistarlo.",
+        syncUnavailable: "Le prenotazioni non sono ancora attive. Potete scriverci per verificare un regalo.",
+        syncError: "Non è stato possibile aggiornare la prenotazione. Riprova tra poco.",
+        statusAvailable: "Disponibile",
+        statusUnavailable: "Prenotazioni non attive",
+        statusReserved: "Prenotato da un'altra persona",
+        statusReservedByYou: "Prenotato da te",
+        statusPurchased: "Già acquistato",
+        actionReserve: "Lo prendo io",
+        actionPurchase: "Segna come acquistato",
+        actionCancel: "Annulla",
+        collection: "Una piccola selezione",
+        giftsTitle: "Idee per Ylenia",
+        priceNote: "Prezzi indicativi in euro; possono variare in base al negozio, alla spedizione e alla disponibilità.",
+        priceLabel: "Prezzo indicativo",
+        link: "Vedi il prodotto",
+        closingTitle: "La vostra presenza è già un regalo.",
+        closingText: "Grazie per esserci e per tutto il vostro affetto. Non vediamo l'ora di farvi conoscere Ylenia.",
+        footerName: "Con affetto, la famiglia Navas Sica",
+        footerPrices: "Prezzi indicativi · Link a negozi esterni",
+        diaperNote: "Per i pannolini, meglio un buono: taglia e vestibilità dipendono da ogni bambina e alcuni marchi permettono di provarli e restituirli.",
+        items: [
+          { category: "Giocare e scoprire", title: "Libro delle attività", description: "Un morbido libretto ricco di texture, etichette e piccole scoperte per i suoi primi mesi.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Libro delle attività Little Dutch" },
+          { category: "Giocare e scoprire", title: "Puzzle sonoro Safari", description: "Un puzzle in legno che accompagna ogni pezzo con il verso di un animale.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Puzzle sonoro verde Little Dutch" },
+          { category: "Giocare e scoprire", title: "Libro Fairy Garden", description: "Un morbido libro di attività con specchio, sonaglio e sorprese da toccare.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-pink-fairy-garden?_pos=10&_psq=fairy+gar&_psid=b5b8bd663&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028023_activiteitenboekje-roze-fairy-garden.jpg?v=1776283993&width=700", alt: "Libro rosa di attività Fairy Garden" },
+          { category: "Giocare e scoprire", title: "Libro Newborn Naturals", description: "Un libro sensoriale dai toni delicati, con specchio, sonaglio e tante texture.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-beige-newborn-naturals?_pos=5&_psq=newborn+naturals&_psid=03c04854d&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0029738_activiteitenboekje-newborn-naturals.jpg?v=1774883732&width=700", alt: "Libro beige di attività Newborn Naturals" },
+          { category: "Musica", title: "Chitarra in legno", description: "Una prima chitarra verde Safari Friends per scoprire ritmi e suoni.", price: 24.95, url: "https://little-dutch.com/en-eu/products/wooden-guitar-green-safari-friends?_pos=1&_psq=guita&_psid=c5c80bd21&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034647_wooden-guitar-green-safari-friends-ld7470-product-1-shopify-square.jpg?v=1778230516&width=700", alt: "Chitarra di legno verde Safari Friends" },
+          { category: "Musica", title: "Set musicale Safari Friends", description: "Cinque strumenti e una custodia per esplorare insieme i primi suoni.", price: 29.95, url: "https://little-dutch.com/en-eu/products/music-set-green-safari-friends?_pos=1&_psq=music+set&_psid=58442c33f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034402_music-set-green-safari-friends-ld7473-product-2-shopify-square.jpg?v=1778230516&width=700", alt: "Set di strumenti musicali verde Safari Friends" },
+          { category: "Giocare e scoprire", title: "Cubo delle attività", description: "Un cubo in legno con giochi su ogni lato, tutto da esplorare e scoprire.", price: 34.95, url: "https://little-dutch.com/en-eu/products/wooden-activity-cube-blue-forest-friends?_pos=5&_psq=cube&_psid=a16c8fef0&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0021328.jpg?v=1775165767&width=700", alt: "Cubo delle attività blu Forest Friends" },
+          { category: "Per crescere", title: "Triciclo evolutivo 4 in 1", description: "Un triciclo che si adatta alle diverse fasi, dalle prime passeggiate all'equilibrio.", price: 109, url: "https://little-dutch.com/en-eu/products/4-in-1-tricycle-green?_pos=1&_psq=tryci&_psid=51028ec3f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028880_4-in-1-driewieler-green.jpg?v=1776369132&width=700", alt: "Triciclo evolutivo verde 4 in 1" },
+          { category: "Per giocare in casa", title: "Tappeto gioco", description: "Un tappeto ampio, imbottito e pieghevole per giocare comodamente a terra.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "Tappeto gioco pieghevole HuBorns" },
+          { category: "Per crescere", title: "Percorso di arrampicata Montessori", description: "Un set pieghevole con triangolo, arco e rampa per esplorare il movimento quando sarà un po' più grande.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Struttura di arrampicata Montessori in legno" },
+          { category: "Pappa", title: "Set pappa in bambù", description: "Ciotola e piatto in bambù con base a ventosa e cucchiaio, per le prime pappe.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Set verde in bambù con ciotola, piatto e cucchiaio" },
+          { category: "Meglio un buono", title: "Pannolini riutilizzabili", description: "Un'opzione riutilizzabile che si può regolare mentre cresce.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Set di pannolini riutilizzabili Bambino Mio", diaper: true }
+        ]
+      },
+      en: {
+        skip: "Skip to content",
+        wordmark: "A little list, made with love",
+        welcome: "Welcome, little one",
+        hello: "Hello,",
+        intro: "We already have everything we need to welcome her. But since some of you have asked what you could give her, we put together a few ideas with lots of love.",
+        cta: "Our first choice",
+        note: "The most important thing is sharing this moment with you. These gifts are just ideas, never an obligation.",
+        transferKicker: "Our first choice",
+        transferTitle: "A contribution to Ylenia's account",
+        transferText: "What would help us most is a bank transfer to Ylenia's account. That way, we can buy what she needs as and when she needs it.",
+        transferUpdate: "We'll let you know what we've bought with your contribution and how much is still unused.",
+        transferDetails: "We've included the account details here if you'd prefer to make a transfer.",
+        beneficiaryLabel: "Beneficiaries",
+        syncLoading: "Connecting to the gift list...",
+        syncReady: "The gift list updates in real time. Please reserve a gift before buying it.",
+        syncUnavailable: "Reservations aren't active yet. Message us to check whether a gift is still available.",
+        syncError: "We couldn't update that reservation. Please try again in a moment.",
+        statusAvailable: "Available",
+        statusUnavailable: "Reservations not active",
+        statusReserved: "Reserved by someone else",
+        statusReservedByYou: "Reserved by you",
+        statusPurchased: "Already purchased",
+        actionReserve: "I'll get this",
+        actionPurchase: "Mark as purchased",
+        actionCancel: "Cancel",
+        collection: "A little selection",
+        giftsTitle: "Ideas for Ylenia",
+        priceNote: "Approximate prices in euros; they may vary by shop, delivery costs or availability.",
+        priceLabel: "Approx. price",
+        link: "View product",
+        closingTitle: "Having you there is already a gift.",
+        closingText: "Thank you for being here and for all your love. We can't wait for you to meet Ylenia.",
+        footerName: "With love, the Navas Sica family",
+        footerPrices: "Indicative prices · Links to external shops",
+        diaperNote: "A voucher is best for nappies: sizing and fit depend on each baby, and some brands let you try and return them.",
+        items: [
+          { category: "Play & discover", title: "Soft activity book", description: "A soft little book full of textures, tags and small discoveries for her first months.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Little Dutch soft activity book" },
+          { category: "Play & discover", title: "Safari sound puzzle", description: "A wooden puzzle that plays an animal sound with each piece.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Little Dutch green sound puzzle" },
+          { category: "Play & discover", title: "Fairy Garden activity book", description: "A soft activity book with a mirror, rattle and little surprises to explore.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-pink-fairy-garden?_pos=10&_psq=fairy+gar&_psid=b5b8bd663&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028023_activiteitenboekje-roze-fairy-garden.jpg?v=1776283993&width=700", alt: "Pink Fairy Garden activity book" },
+          { category: "Play & discover", title: "Newborn Naturals activity book", description: "A sensory book in soft colours, with a mirror, rattle and different textures.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet-beige-newborn-naturals?_pos=5&_psq=newborn+naturals&_psid=03c04854d&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0029738_activiteitenboekje-newborn-naturals.jpg?v=1774883732&width=700", alt: "Beige Newborn Naturals activity book" },
+          { category: "Music", title: "Wooden guitar", description: "A first green Safari Friends guitar for discovering rhythms and sounds.", price: 24.95, url: "https://little-dutch.com/en-eu/products/wooden-guitar-green-safari-friends?_pos=1&_psq=guita&_psid=c5c80bd21&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034647_wooden-guitar-green-safari-friends-ld7470-product-1-shopify-square.jpg?v=1778230516&width=700", alt: "Green wooden Safari Friends guitar" },
+          { category: "Music", title: "Safari Friends music set", description: "Five instruments and a little bag for exploring first sounds together.", price: 29.95, url: "https://little-dutch.com/en-eu/products/music-set-green-safari-friends?_pos=1&_psq=music+set&_psid=58442c33f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034402_music-set-green-safari-friends-ld7473-product-2-shopify-square.jpg?v=1778230516&width=700", alt: "Green Safari Friends musical instrument set" },
+          { category: "Play & discover", title: "Activity cube", description: "A wooden cube with something to explore, match and discover on every side.", price: 34.95, url: "https://little-dutch.com/en-eu/products/wooden-activity-cube-blue-forest-friends?_pos=5&_psq=cube&_psid=a16c8fef0&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0021328.jpg?v=1775165767&width=700", alt: "Blue Forest Friends activity cube" },
+          { category: "For growing", title: "4-in-1 growing tricycle", description: "A tricycle that adapts to different stages, from first rides to practising balance.", price: 109, url: "https://little-dutch.com/en-eu/products/4-in-1-tricycle-green?_pos=1&_psq=tryci&_psid=51028ec3f&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0028880_4-in-1-driewieler-green.jpg?v=1776369132&width=700", alt: "Green 4-in-1 growing tricycle" },
+          { category: "At-home play", title: "Foldable play mat", description: "A roomy, padded, foldable mat for playing comfortably on the floor.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "HuBorns foldable play mat" },
+          { category: "For growing", title: "Montessori climbing set", description: "A foldable triangle, arch and ramp for exploring movement when she's a little older.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Wooden Montessori climbing frame" },
+          { category: "Mealtime", title: "Bamboo suction feeding set", description: "A bamboo bowl and plate with a suction base and spoon for starting solids.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Green bamboo bowl and plate set with spoon" },
+          { category: "A voucher works best", title: "Reusable nappies", description: "A reusable option that can be adjusted as she grows.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Bambino Mio reusable nappy set", diaper: true }
+        ]
+      }
+    };
+
+    const grid = document.querySelector("#gift-grid");
+    const syncStatus = document.querySelector("#sync-status");
+    const languageButtons = document.querySelectorAll("[data-language]");
+    const currencyLocales = { es: "es-ES", it: "it-IT", en: "en-IE" };
+    const giftStates = new Map();
+    const busyGifts = new Set();
+    const giftIds = translations.es.items.map((item) => item.url.match(/\/(?:products|dp|product)\/([^/?]+)/)?.[1]);
+    let activeLanguage = "es";
+    let firebaseReady = false;
+    let firebaseState = "syncLoading";
+
+    function giftIdFor(url) {
+      return url.match(/\/(?:products|dp|product)\/([^/?]+)/)?.[1];
+    }
+
+    function render(language) {
+      activeLanguage = language;
+      const copy = translations[language];
+      document.documentElement.lang = language;
+      document.title = language === "es" ? "Para Ylenia, con cariño" : language === "it" ? "Per Ylenia, con affetto" : "For Ylenia, with love";
+      document.querySelectorAll("[data-copy]").forEach((element) => {
+        const key = element.dataset.copy;
+        if (copy[key]) element.textContent = copy[key];
+      });
+      syncStatus.textContent = copy[firebaseState];
+      languageButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === language));
+      });
+      const formatter = new Intl.NumberFormat(currencyLocales[language], { style: "currency", currency: "EUR", maximumFractionDigits: 2 });
+      grid.innerHTML = copy.items.map((item, index) => {
+        const giftId = giftIdFor(item.url);
+        const state = giftStates.get(giftId);
+        const status = state?.status || "available";
+        const reservedByYou = state?.reservedBy === auth.currentUser?.uid;
+        let statusText = copy.statusAvailable;
+        let actions = "";
+
+        if (!firebaseReady) {
+          statusText = copy.statusUnavailable;
+        } else if (status === "purchased") {
+          statusText = copy.statusPurchased;
+        } else if (status === "reserved" && reservedByYou) {
+          statusText = copy.statusReservedByYou;
+          actions = `<button class="reserve-button" type="button" data-gift-id="${giftId}" data-gift-action="purchase" ${busyGifts.has(giftId) ? "disabled" : ""}>${copy.actionPurchase}</button><button class="reserve-button secondary" type="button" data-gift-id="${giftId}" data-gift-action="cancel" ${busyGifts.has(giftId) ? "disabled" : ""}>${copy.actionCancel}</button>`;
+        } else if (status === "reserved") {
+          statusText = copy.statusReserved;
+        } else {
+          actions = `<button class="reserve-button" type="button" data-gift-id="${giftId}" data-gift-action="reserve" ${busyGifts.has(giftId) ? "disabled" : ""}>${copy.actionReserve}</button>`;
+        }
+
+        return `
+          <article class="gift-card" style="animation-delay:${Math.min(index % 3, 2) * 0.08}s">
+            <div class="photo-wrap"><img class="product-photo" src="${item.image}" alt="${item.alt}" loading="lazy"></div>
+            <div class="card-content">
+              <span class="category">${item.category}</span>
+              <h3>${item.title}</h3>
+              <p class="description">${item.description}</p>
+              <div class="card-bottom">
+                <div><span class="price-label">${copy.priceLabel}</span><span class="price">${formatter.format(item.price)}</span></div>
+                <a class="product-link" href="${item.url}" target="_blank" rel="noopener noreferrer"><span>${copy.link}</span><span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="reservation"><span class="gift-status">${statusText}</span><div class="reservation-actions">${actions}</div></div>
+              ${item.diaper ? `<p class="diaper-note">${copy.diaperNote}</p>` : ""}
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    async function updateGift(giftId, action) {
+      const userId = auth.currentUser?.uid;
+      if (!firebaseReady || !userId) return;
+      busyGifts.add(giftId);
+      render(activeLanguage);
+      try {
+        const reference = doc(db, "gifts", giftId);
+        const updated = await runTransaction(db, async (transaction) => {
+          const snapshot = await transaction.get(reference);
+          const current = snapshot.exists() ? snapshot.data() : { status: "available" };
+          if (action === "reserve") {
+            if (current.status !== "available") return false;
+            transaction.set(reference, { status: "reserved", reservedBy: userId, updatedAt: serverTimestamp() });
+            return true;
+          }
+          if (current.status !== "reserved" || current.reservedBy !== userId) return false;
+          if (action === "purchase") {
+            transaction.update(reference, { status: "purchased", updatedAt: serverTimestamp() });
+          } else if (action === "cancel") {
+            transaction.update(reference, { status: "available", reservedBy: null, updatedAt: serverTimestamp() });
+          }
+          return true;
+        });
+        if (!updated) firebaseState = "syncError";
+      } catch {
+        firebaseState = "syncError";
+      } finally {
+        busyGifts.delete(giftId);
+        render(activeLanguage);
+      }
+    }
+
+    grid.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-gift-action]");
+      if (button) updateGift(button.dataset.giftId, button.dataset.giftAction);
+    });
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => render(button.dataset.language));
+    });
+
+    render("es");
+    try {
+      await signInAnonymously(auth);
+      const giftQuery = query(collection(db, "gifts"), where(documentId(), "in", giftIds));
+      onSnapshot(giftQuery, (snapshot) => {
+        giftStates.clear();
+        snapshot.forEach((gift) => giftStates.set(gift.id, gift.data()));
+        firebaseReady = true;
+        firebaseState = "syncReady";
+        render(activeLanguage);
+      }, () => {
+        firebaseReady = false;
+        firebaseState = "syncUnavailable";
+        render(activeLanguage);
+      });
+    } catch {
+      firebaseReady = false;
+      firebaseState = "syncUnavailable";
+      render(activeLanguage);
+    }
+  </script>
+</body>
+</html>

@@ -374,7 +374,7 @@
     }
     .reserve-button.secondary { border: 1px solid var(--line); background: transparent; color: var(--green); }
     .reserve-button:disabled { cursor: wait; opacity: .6; }
-    .diaper-note {
+    .diaper-note, .shipping-note {
       margin-top: 12px;
       padding: 10px 11px;
       border-left: 2px solid var(--yellow);
@@ -463,7 +463,7 @@
       .price-label { font-size: 9px; }
       .price { font-size: 13px; }
       .product-link { min-height: 34px; padding: 0 10px; font-size: 10px; }
-      .diaper-note { grid-column: 1 / -1; margin-top: 10px; font-size: 10px; }
+      .diaper-note, .shipping-note { grid-column: 1 / -1; margin-top: 10px; font-size: 10px; }
       .closing { grid-template-columns: 1fr auto; gap: 12px; padding: 32px 22px; }
       .closing h2 { font-size: 30px; }
       .closing p { font-size: 11px; }
@@ -601,6 +601,7 @@
         footerName: "Con cariño, la familia Navas Sica",
         footerPrices: "Precios orientativos · Enlaces a tiendas externas",
         diaperNote: "Para los pañales, mejor un vale: la talla y el ajuste dependen de cada bebé, y algunas marcas permiten probarlos y devolverlos.",
+        shippingNote: "Este artículo debe enviarse a España. Contactadnos antes para que os indiquemos la dirección de envío.",
         items: [
           { category: "Jugar y descubrir", title: "Librito de actividades", description: "Un libro blandito lleno de texturas, etiquetas y pequeños descubrimientos para sus primeros meses.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Librito de actividades Little Dutch" },
           { category: "Jugar y descubrir", title: "Puzzle sonoro Safari", description: "Un puzzle de madera que acompaña cada pieza con el sonido de un animal.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Puzzle sonoro verde de Little Dutch" },
@@ -613,6 +614,8 @@
           { category: "Para jugar en casa", title: "Alfombra de juegos", description: "Una alfombra amplia, acolchada y plegable para jugar cómodamente en el suelo.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "Alfombra de juegos plegable HuBorns" },
           { category: "Para crecer", title: "Circuito de escalada Montessori", description: "Un conjunto plegable de triángulo, arco y rampa para explorar el movimiento cuando sea un poco mayor.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Estructura de escalada de madera Montessori" },
           { category: "Hora de comer", title: "Set de vajilla con succión", description: "Cuenco y plato de bambú con base de succión y cuchara, para empezar a comer con autonomía.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Set verde de cuenco y plato de bambú con cuchara" },
+          { category: "Para el coche", title: "Silla de coche Kinderkraft I-GROW 2 PRO", description: "Silla evolutiva i-Size giratoria 360°, para niños de 40 a 150 cm.", price: 149, url: "https://www.amazon.es/-/en/Kinderkraft/dp/B0F9YPJLBX?th=1", image: "https://m.media-amazon.com/images/I/81azNy70-lL._AC_SY450_.jpg", alt: "Silla de coche beige Kinderkraft I-GROW 2 PRO", shippingToSpain: true },
+          { category: "Para pasear", title: "Cochecito Kinderkraft GRANDE PLUS", description: "Cochecito ligero y reclinable, desde el nacimiento hasta 22 kg, con plegado con una mano.", price: 139.90, url: "https://www.amazon.es/dp/B0B214SPFN", image: "https://m.media-amazon.com/images/I/71s0El1yAYL._AC_SY450_.jpg", alt: "Cochecito gris Kinderkraft GRANDE PLUS", shippingToSpain: true },
           { category: "Un vale viene mejor", title: "Pañales reutilizables", description: "Una opción reutilizable que se puede ajustar a medida que crece.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Set de pañales reutilizables Bambino Mio", diaper: true }
         ]
       },
@@ -652,6 +655,7 @@
         footerName: "Con affetto, la famiglia Navas Sica",
         footerPrices: "Prezzi indicativi · Link a negozi esterni",
         diaperNote: "Per i pannolini, meglio un buono: taglia e vestibilità dipendono da ogni bambina e alcuni marchi permettono di provarli e restituirli.",
+        shippingNote: "Questo articolo deve essere spedito in Spagna. Contattateci prima per ricevere l'indirizzo di spedizione.",
         items: [
           { category: "Giocare e scoprire", title: "Libro delle attività", description: "Un morbido libretto ricco di texture, etichette e piccole scoperte per i suoi primi mesi.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Libro delle attività Little Dutch" },
           { category: "Giocare e scoprire", title: "Puzzle sonoro Safari", description: "Un puzzle in legno che accompagna ogni pezzo con il verso di un animale.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Puzzle sonoro verde Little Dutch" },
@@ -664,6 +668,8 @@
           { category: "Per giocare in casa", title: "Tappeto gioco", description: "Un tappeto ampio, imbottito e pieghevole per giocare comodamente a terra.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "Tappeto gioco pieghevole HuBorns" },
           { category: "Per crescere", title: "Percorso di arrampicata Montessori", description: "Un set pieghevole con triangolo, arco e rampa per esplorare il movimento quando sarà un po' più grande.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Struttura di arrampicata Montessori in legno" },
           { category: "Pappa", title: "Set pappa in bambù", description: "Ciotola e piatto in bambù con base a ventosa e cucchiaio, per le prime pappe.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Set verde in bambù con ciotola, piatto e cucchiaio" },
+          { category: "Per l'auto", title: "Seggiolino auto Kinderkraft I-GROW 2 PRO", description: "Seggiolino evolutivo i-Size con rotazione a 360°, per bambini da 40 a 150 cm.", price: 149, url: "https://www.amazon.es/-/en/Kinderkraft/dp/B0F9YPJLBX?th=1", image: "https://m.media-amazon.com/images/I/81azNy70-lL._AC_SY450_.jpg", alt: "Seggiolino auto beige Kinderkraft I-GROW 2 PRO", shippingToSpain: true },
+          { category: "Per le passeggiate", title: "Passeggino Kinderkraft GRANDE PLUS", description: "Passeggino leggero e reclinabile, dalla nascita fino a 22 kg, con chiusura a una mano.", price: 139.90, url: "https://www.amazon.es/dp/B0B214SPFN", image: "https://m.media-amazon.com/images/I/71s0El1yAYL._AC_SY450_.jpg", alt: "Passeggino grigio Kinderkraft GRANDE PLUS", shippingToSpain: true },
           { category: "Meglio un buono", title: "Pannolini riutilizzabili", description: "Un'opzione riutilizzabile che si può regolare mentre cresce.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Set di pannolini riutilizzabili Bambino Mio", diaper: true }
         ]
       },
@@ -703,6 +709,7 @@
         footerName: "With love, the Navas Sica family",
         footerPrices: "Indicative prices · Links to external shops",
         diaperNote: "A voucher is best for nappies: sizing and fit depend on each baby, and some brands let you try and return them.",
+        shippingNote: "This item must be shipped to Spain. Please contact us first for the shipping address.",
         items: [
           { category: "Play & discover", title: "Soft activity book", description: "A soft little book full of textures, tags and small discoveries for her first months.", price: 17.95, url: "https://little-dutch.com/en-eu/products/activity-booklet?_pos=4&_psq=bookl&_psid=6d8630a7e&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034529_activity-book-ld8307-product-1-shopify-square.jpg?v=1778231101&width=700", alt: "Little Dutch soft activity book" },
           { category: "Play & discover", title: "Safari sound puzzle", description: "A wooden puzzle that plays an animal sound with each piece.", price: 19.95, url: "https://little-dutch.com/en-eu/products/sound-puzzle-green?_pos=1&_psq=sound+pu&_psid=b9763a67a&_ss=e", image: "https://little-dutch.com/cdn/shop/files/0034829_sound-puzzle-green-ld7440-product-3-shopify-square.jpg?v=1781847903&width=700", alt: "Little Dutch green sound puzzle" },
@@ -715,6 +722,8 @@
           { category: "At-home play", title: "Foldable play mat", description: "A roomy, padded, foldable mat for playing comfortably on the floor.", price: 57.56, url: "https://www.amazon.ie/gp/product/B0DQQ2DYNN/ref=ox_sc_act_title_1?smid=A3IWRQOAVXJDLM&psc=1", image: "https://m.media-amazon.com/images/I/813F-XwfLmL._AC_SX425_.jpg", alt: "HuBorns foldable play mat" },
           { category: "For growing", title: "Montessori climbing set", description: "A foldable triangle, arch and ramp for exploring movement when she's a little older.", price: 109.99, url: "https://www.amazon.ie/Climbing-Foldable-Montessori-Equipment-Children-Rainbow/dp/B0D62VMQBH/ref=sr_1_3?crid=2T32URL29E0JL&dib=eyJ2IjoiMSJ9.4ni36rGlD9HpuJmiOhqlvO5PbH93ctNzlA6IfIQjTt1wy7RMFSOinDEICt3w7rzaXdRKv_DIe7G_BHHtqRoPhD7QJpePag2DRZtt9z3luHRgMLHU5ER1YvqWefRTvSZKAYQ_8EV8oy7XrRNcXCoJlc4nnh1G_-yETfD2NUksJ7CHIuHAi59LysJtsH9dOOY4W4gvcnrBcwddutFiJEATz3oylfHyLNMrshKsjXvo6kK5QqUz6xMJT2dfiGqOdp5eyD9lMmBzW_AUud3e2hd67Tq4dqFWoFA_p4cICR710PM.qPU9a2uV4BgTIN4Alin-c9zEV_VJIMye0x8hilJxUGs&dib_tag=se&keywords=toddler+gym&qid=1790703134&sprefix=todler+gym%2Caps%2C124&sr=8-3", image: "https://m.media-amazon.com/images/I/711LkfRev1L._AC_SX425_.jpg", alt: "Wooden Montessori climbing frame" },
           { category: "Mealtime", title: "Bamboo suction feeding set", description: "A bamboo bowl and plate with a suction base and spoon for starting solids.", price: 31.35, url: "https://www.amazon.ie/dp/B08XXBC81T", image: "https://m.media-amazon.com/images/I/71JVCUI2iDL._AC_SX425_.jpg", alt: "Green bamboo bowl and plate set with spoon" },
+          { category: "For the car", title: "Kinderkraft I-GROW 2 PRO car seat", description: "A 360° swivel i-Size seat for children from 40 to 150 cm.", price: 149, url: "https://www.amazon.es/-/en/Kinderkraft/dp/B0F9YPJLBX?th=1", image: "https://m.media-amazon.com/images/I/81azNy70-lL._AC_SY450_.jpg", alt: "Beige Kinderkraft I-GROW 2 PRO car seat", shippingToSpain: true },
+          { category: "For walks", title: "Kinderkraft GRANDE PLUS stroller", description: "A lightweight reclining stroller from birth up to 22 kg, with one-hand folding.", price: 139.90, url: "https://www.amazon.es/dp/B0B214SPFN", image: "https://m.media-amazon.com/images/I/71s0El1yAYL._AC_SY450_.jpg", alt: "Grey Kinderkraft GRANDE PLUS stroller", shippingToSpain: true },
           { category: "A voucher works best", title: "Reusable nappies", description: "A reusable option that can be adjusted as she grows.", price: 96.79, url: "https://www.amazon.ie/Bambino-Mio-Miosolo-Classic-Reusable/dp/B09BJGTN39?th=1", image: "https://m.media-amazon.com/images/I/81skvcCa8OL._AC_SY355_.jpg", alt: "Bambino Mio reusable nappy set", diaper: true }
         ]
       }
@@ -783,6 +792,7 @@
               </div>
               <div class="reservation"><span class="gift-status">${statusText}</span><div class="reservation-actions">${actions}</div></div>
               ${item.diaper ? `<p class="diaper-note">${copy.diaperNote}</p>` : ""}
+              ${item.shippingToSpain ? `<p class="shipping-note">${copy.shippingNote}</p>` : ""}
             </div>
           </article>`;
       }).join("");

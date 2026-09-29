@@ -28,4 +28,4 @@ The account transfer details are intentionally visible on the public page.
 
 The list uses anonymous Firebase sign-in, so visitors do not need to create an account or provide their name. A visitor can reserve an available gift, cancel their own reservation, or mark their own reservation as purchased. Everyone sees status changes in real time. The same browser should be used to manage a reservation, since its anonymous identity is stored there.
 
-`firestore.rules` permits public reads of the twelve known gift statuses, but restricts writes to valid reserve, cancel, and purchase transitions. It does not allow deleting gift records. The app's Firebase API key is public by design; Firestore security rules, not the key, protect the data.
+`firestore.rules` permits public reads of the fourteen known gift statuses, but restricts writes to valid reserve, cancel, and purchase transitions. It does not allow deleting gift records. The app's Firebase API key is public by design; Firestore security rules, not the key, protect the data.

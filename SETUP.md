@@ -6,10 +6,15 @@ The Firebase project and its web app are already created: [ylenia-presents-2026]
 
 The default Firestore database has been created in `eur3`, anonymous authentication is enabled, and the reservation rules are deployed.
 
-## Before publishing on GitHub Pages
+## Hosting
 
-1. In Firebase Console, open **Authentication > Settings > Authorized domains** and add the GitHub Pages host (for example, `your-account.github.io`). Local testing works on `localhost`; the published host must be authorized before reservations will work there.
-2. Publish `index.html` with GitHub Pages.
+The public site is hosted on Firebase at <https://ylenia-presents-2026.web.app>. GitHub is the source-code repository; GitHub Pages is disabled to avoid maintaining two live copies.
+
+To publish a site update, run:
+
+   ```sh
+   firebase deploy --only hosting --project ylenia-presents-2026
+   ```
 
 To redeploy the reservation rules after changing them, run:
 
